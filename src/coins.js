@@ -8,7 +8,7 @@ const coins = {
   BTG: 'btg',
   LTC: 'ltc',
   ZEC: 'zec',
-  DASH: 'dash'
+  DASH: 'dash',
   GRS: 'grs'
 }
 
