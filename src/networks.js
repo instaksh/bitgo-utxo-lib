@@ -206,5 +206,5 @@ module.exports = {
     },
     coin: coins.ZEC,
     hashFunctions: hashFunctions
-  },
+  }
 }
