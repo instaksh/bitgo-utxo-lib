@@ -36,7 +36,7 @@ HDNode.fromSeedBuffer = function (seed, network) {
   typeforce(types.tuple(types.Buffer, types.maybe(types.Network)), arguments)
 
   if (seed.length < 16) throw new TypeError('Seed should be at least 128 bits')
-  if (seed.length > 64) throw new TypeError('Seed should be at most 512 bits')
+  if (seed.length > 256) throw new TypeError('Seed should be at most 2048 bits')
 
   var I = createHmac('sha512', HDNode.MASTER_SECRET).update(seed).digest()
   var IL = I.slice(0, 32)
@@ -60,6 +60,9 @@ HDNode.fromBase58 = function (string, networks) {
   // FixMe: Issue #38, this method just pops the latest network object from the list instead of being more discerning.
   if (Array.isArray(networks)) {
     networks = networks[0] || NETWORKS.bitcoin
+  }
+  } else {
+    networks = networks || NETWORKS.bitcoin
   }
   var buffer = bs58checkBase(networks.hashFunctions.address).decode(string) 
   if (buffer.length !== 78) throw new Error('Invalid buffer length')
