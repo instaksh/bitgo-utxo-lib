@@ -1,3 +1,4 @@
+var Buffer = require('buffer/').Buffer
 var baddress = require('./address')
 var bcrypto = require('./crypto')
 var ecdsa = require('./ecdsa')
