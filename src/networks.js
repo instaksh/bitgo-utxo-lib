@@ -1,6 +1,7 @@
 // https://en.bitcoin.it/wiki/List_of_address_prefixes
 // Dogecoin BIP32 is a proposed standard: https://bitcointalk.org/index.php?topic=409731
 var coins = require('./coins')
+const bcrypto = require('./crypto')
 
 const hashFunctions = {
   address: bcrypto.hash256, // sha256x2
