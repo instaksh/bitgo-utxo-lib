@@ -124,19 +124,7 @@ module.exports = {
     },
     coin: coins.ZEC
   },
-  bitcoingold: {
-    messagePrefix: '\x18Bitcoin Gold Signed Message:\n',
-    bech32: 'btg',
-    bip32: {
-      public: 0x0488b21e,
-      private: 0x0488ade4
-    },
-    pubKeyHash: 0x26,
-    scriptHash: 0x17,
-    wif: 0x80,
-    coin: coins.BTG,
-    forkId: 0x4F /* 79 */
-  },
+  
   litecoin: {
     messagePrefix: '\x19Litecoin Signed Message:\n',
     bech32: 'ltc',
@@ -205,6 +193,129 @@ module.exports = {
       4: 0x76b809bb
     },
     coin: coins.ZEC,
+    hashFunctions: hashFunctions
+  },
+  
+   zcoin: {
+    messagePrefix: "\x18Zcoin Signed Message: \n",
+    bech32: "xzc", // not known
+    bip32: {
+      public:  0x0488b21e,
+      private: 0x0488ade4,
+    },
+    pubKeyHash: 0x52,
+    scriptHash: 0x07,
+    wif: 0xd2,
+    coin: coins.BTC,
+    hashFunctions: hashFunctions
+  },
+  
+  ravencoin: {
+    messagePrefix: "\x18Ravencoin Signed Message: \n",
+    bech32: "rvn", // not known
+    bip32: {
+      public:  0x0488b21e,
+      private: 0x0488ade4,
+    },
+    pubKeyHash: 0x3c,
+    scriptHash: 0x7a,
+    wif: 0x80,
+    coin: coins.BTC,
+    hashFunctions: hashFunctions
+  },
+  
+   bitcoinz: {
+    messagePrefix: '\x18BitcoinZ Signed Message:\n',
+    bech32: 'bc',
+    bip32: {
+      public: 0x0488b21e,
+      private: 0x0488ade4
+    },
+    pubKeyHash: 0x1cb8,
+    scriptHash: 0x1cbd,
+    wif: 0x80,
+    // This parameter was introduced in version 3 to allow soft forks, for version 1 and 2 transactions we add a
+    // dummy value.
+    consensusBranchId: {
+      1: 0x00,
+      2: 0x00,
+      3: 0x5ba81b19,
+      4: 0x76b809bb
+    },
+    coin: coins.ZEC,
+    hashFunctions: hashFunctions
+  },
+  
+  zclassic: {
+    messagePrefix: '\x18Zclassic Signed Message:\n',
+    bech32: 'bc',
+    bip32: {
+      public: 0x0488b21e,
+      private: 0x0488ade4
+    },
+    pubKeyHash: 0x1cb8,
+    scriptHash: 0x1cbd,
+    wif: 0x80,
+    // This parameter was introduced in version 3 to allow soft forks, for version 1 and 2 transactions we add a
+    // dummy value.
+    consensusBranchId: {
+      1: 0x00,
+      2: 0x00,
+      3: 0x5ba81b19,
+      4: 0x76b809bb
+    },
+    coin: coins.ZEC,
+    hashFunctions: hashFunctions
+  },
+  
+   groestlcoin: {
+    messagePrefix: '\x1cGroestlCoin Signed Message:\n',
+    bech32: 'grs',
+    bip32: {
+      public: 0x0488b21e,
+      private: 0x0488ade4
+    },
+    pubKeyHash: 0x24,
+    scriptHash: 0x05,
+    wif: 0x80,
+    coin: coins.GRS,
+    hashFunctions: groestlHashFunctions
+  },
+  
+  snowgem: {
+    messagePrefix: '\x18Snowgem Signed Message:\n',
+    bech32: 'bc',
+    bip32: {
+      public: 0x0488b21e,
+      private: 0x0488ade4
+    },
+    pubKeyHash: 0x1c28,
+    scriptHash: 0x1c2d,
+    wif: 0x80,
+    // This parameter was introduced in version 3 to allow soft forks, for version 1 and 2 transactions we add a
+    // dummy value.
+    consensusBranchId: {
+      1: 0x00,
+      2: 0x00,
+      3: 0x5ba81b19,
+      4: 0x76b809bb
+    },
+    coin: coins.ZEC,
+    hashFunctions: hashFunctions
+  },
+  
+  bitcoingold: {
+    messagePrefix: '\x18Bitcoin Gold Signed Message:\n',
+    bech32: 'btg',
+    bip32: {
+      public: 0x0488b21e,
+      private: 0x0488ade4
+    },
+    pubKeyHash: 0x26,
+    scriptHash: 0x17,
+    wif: 0x80,
+    coin: coins.BTG,
+    forkId: 0x4F, /* 79 */
     hashFunctions: hashFunctions
   }
 }
