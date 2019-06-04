@@ -13,6 +13,7 @@ var ecurve = require('ecurve')
 var curve = ecurve.getCurveByName('secp256k1')
 
 var fastcurve = require('./fastcurve')
+var bs58checkBase = require('bs58check/base')
 
 function HDNode (keyPair, chainCode) {
   typeforce(types.tuple('ECPair', types.Buffer256bit), arguments)
