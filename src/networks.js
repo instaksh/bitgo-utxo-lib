@@ -2,6 +2,17 @@
 // Dogecoin BIP32 is a proposed standard: https://bitcointalk.org/index.php?topic=409731
 var coins = require('./coins')
 
+const hashFunctions = {
+  address: bcrypto.hash256, // sha256x2
+  transaction: bcrypto.hash256 // sha256x2
+}
+
+const groestlHashFunctions = {
+  address: bcrypto.groestl,
+  transaction: bcrypto.sha256
+}
+
+
 module.exports = {
   dash: {
     messagePrefix: '\x19DarkCoin Signed Message:\n',
@@ -173,5 +184,27 @@ module.exports = {
     scriptHash: 0xc4,
     wif: 0xef,
     coin: coins.BTC
-  }
+  },
+  
+   zelcash: {
+    messagePrefix: '\x18ZelCash Signed Message:\n',
+    bech32: 'bc',
+    bip32: {
+      public: 0x0488b21e,
+      private: 0x0488ade4
+    },
+    pubKeyHash: 0x1cb8,
+    scriptHash: 0x1cbd,
+    wif: 0x80,
+    // This parameter was introduced in version 3 to allow soft forks, for version 1 and 2 transactions we add a
+    // dummy value.
+    consensusBranchId: {
+      1: 0x00,
+      2: 0x00,
+      3: 0x5ba81b19,
+      4: 0x76b809bb
+    },
+    coin: coins.ZEC,
+    hashFunctions: hashFunctions
+  },
 }
