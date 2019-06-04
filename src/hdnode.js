@@ -60,7 +60,6 @@ HDNode.fromBase58 = function (string, networks) {
   // FixMe: Issue #38, this method just pops the latest network object from the list instead of being more discerning.
   if (Array.isArray(networks)) {
     networks = networks[0] || NETWORKS.bitcoin
-  }
   } else {
     networks = networks || NETWORKS.bitcoin
   }
