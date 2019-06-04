@@ -21,6 +21,10 @@ function sha256 (buffer) {
   return createHash('sha256').update(buffer).digest()
 }
 
+function groestl (buffer) {
+  return Buffer(groestlhash.groestl_2(buffer, 1, 1))
+}
+
 function hash160 (buffer) {
   return ripemd160(sha256(buffer))
 }
@@ -34,5 +38,6 @@ module.exports = {
   hash256: hash256,
   ripemd160: ripemd160,
   sha1: sha1,
-  sha256: sha256
+  sha256: sha256,
+  groestl: groestl
 }
