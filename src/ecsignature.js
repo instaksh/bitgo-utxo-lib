@@ -1,3 +1,4 @@
+var Buffer = require('buffer/').Buffer
 var bip66 = require('bip66')
 var typeforce = require('typeforce')
 var types = require('./types')
