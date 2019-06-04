@@ -329,5 +329,18 @@ module.exports = {
     coin: coins.BTG,
     forkId: 0x4F, /* 79 */
     hashFunctions: hashFunctions
+  },
+  
+  axe: {
+    messagePrefix: '\x19Axe Signed Message:\n',
+    bip32: {
+      public: 0x0488b21e,
+      private: 0x0488ade4
+    },
+    pubKeyHash: 0x37, // https://dash-docs.github.io/en/developer-reference#opcodes
+    scriptHash: 0x10,
+    wif: 0xcc,
+    coin: coins.DASH,
+    hashFunctions: hashFunctions
   }
 }
