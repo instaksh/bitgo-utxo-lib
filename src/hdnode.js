@@ -58,7 +58,10 @@ HDNode.fromSeedHex = function (hex, network) {
 
 HDNode.fromBase58 = function (string, networks) {
   // FixMe: Issue #38, this method just pops the latest network object from the list instead of being more discerning.
-  var buffer = base58check.decode(string)
+  if (Array.isArray(networks)) {
+    networks = networks[0] || NETWORKS.bitcoin
+  }
+  var buffer = bs58checkBase(networks.hashFunctions.address).decode(string) 
   if (buffer.length !== 78) throw new Error('Invalid buffer length')
 
   // 4 bytes: version bytes
@@ -203,8 +206,8 @@ HDNode.prototype.toBase58 = function (__isPrivate) {
     // X9.62 encoding for public keys
     this.keyPair.getPublicKeyBuffer().copy(buffer, 45)
   }
-
-  return base58check.encode(buffer)
+  
+  return bs58checkBase(network.hashFunctions.address).encode(buffer)
 }
 
 // https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki#child-key-derivation-ckd-functions
