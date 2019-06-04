@@ -7,9 +7,9 @@ var networks = require('./networks')
 var typeforce = require('typeforce')
 var types = require('./types')
 var bs58checkBase = require('bs58check/base')
-
+ 
 function fromBase58Check (address, network) {
-  var payload = bs58check.decode(address)	  network = network || networks.bitcoin
+  network = network || networks.bitcoin
   var payload = bs58checkBase(network.hashFunctions.address).decode(address)
 
   // TODO: 4.0.0, move to "toOutputScript"
