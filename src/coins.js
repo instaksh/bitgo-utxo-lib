@@ -9,6 +9,7 @@ const coins = {
   LTC: 'ltc',
   ZEC: 'zec',
   DASH: 'dash'
+  GRS: 'grs'
 }
 
 coins.isBitcoin = function (network) {
@@ -39,13 +40,19 @@ coins.isZcash = function (network) {
   return typeforce.value(coins.ZEC)(network.coin)
 }
 
+coins.isGroestlcoin = function (network) {
+  return typeforce.value(coins.GRS)(network.coin)
+}
+
 coins.isValidCoin = typeforce.oneOf(
   coins.isBitcoin,
   coins.isBitcoinCash,
   coins.isBitcoinSV,
   coins.isBitcoinGold,
   coins.isLitecoin,
-  coins.isZcash
+  coins.isZcash,
+  coins.isGroestlcoin
+
 )
 
 module.exports = coins
