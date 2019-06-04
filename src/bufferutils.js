@@ -1,3 +1,4 @@
+var Buffer = require('buffer/').Buffer
 var pushdata = require('pushdata-bitcoin')
 var varuint = require('varuint-bitcoin')
 
